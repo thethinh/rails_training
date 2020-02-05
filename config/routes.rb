@@ -1,7 +1,11 @@
 Rails.application.routes.draw do
-  get 'static_pages/home'
-  get 'static_pages/help'
+  get 'users/new'
+  get 'user/new'
+  root 'static_pages#home'
+  get  '/help' => 'static_pages#help'
+  get  '/signup' => 'users#new'
+  post '/signup',  to: 'users#create'
 
-  root 'application#hello'
+  resources :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
